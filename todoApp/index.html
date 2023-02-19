@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="todo-app.css">
+  <script defer src="todoApp.js"></script>
+</head>
+<body>
+    <div class="todo">
+        <div class="todo_input">
+          <input class="todo_text" type="text">
+          <button class="btn_add" type="button">add</button>
+        </div>
+        <select class="todo_states" onchange="selectOnChange(this)">
+          <option value="all">all</option>
+          <option value="active">active</option>
+          <option value="completed">completed</option>
+        </select>
+        <ul class="todo_list" todo-state="active"></ul>
+
+      </div>
+</body>
+</html>
