@@ -8,18 +8,19 @@
   <script defer src="todoApp.js"></script>
 </head>
 <body>
-    <div class="todo">
-        <div class="todo_input">
-          <input class="todo_text" type="text">
-          <button class="btn_add" type="button">add</button>
-        </div>
-        <select class="todo_states" onchange="selectOnChange(this)">
-          <option value="all">all</option>
-          <option value="active">active</option>
-          <option value="completed">completed</option>
-        </select>
-        <ul class="todo_list" todo-state="active"></ul>
+  <div class="todo">
+    <div class="title">Todo_App</div>
+    <div class="todo_input">
+      <input class="todo_text" type="text">
+      <button class="btn_add" type="button">add</button>
+    </div>
+    <select class="todo_states" onchange="selectOnChange(this)">
+      <option value="all">all</option>
+      <option value="active">active</option>
+      <option value="completed">completed</option>
+    </select>
+    <ul class="todo_list" todo-state="active"></ul>
 
-      </div>
+  </div>
 </body>
 </html>

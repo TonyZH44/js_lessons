@@ -1,0 +1,33 @@
+.todo {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+body{
+    display: flex;
+}
+li{
+    height: 20pt;
+}
+.todo_task{
+    font-size: 15pt;
+}
+.title{
+    font-size: 50pt;
+    margin-bottom: 20pt;
+}
+.todo_input{
+    margin: 0;
+    padding: 0;
+
+}
+.todo_text{
+    width: 180pt;
+    height: 17pt;
+    font-size: 15pt;
+}
+.btn_add{
+    height: 20pt;
+    margin: 0;
+    padding: 0;
+}

@@ -32,6 +32,23 @@ function initActions(){
                 break;
         }
     })
+    let input = document.querySelector('.todo_text');
+    input.addEventListener('keydown', (event) => {
+        const keyName = event.key;
+
+        if (keyName === 'Enter') {
+            addTask();
+            save();
+        } 
+    })
+
+    app.addEventListener('dblclick', (event) => {
+        if (event.target.className == "todo_task" 
+            && event.target.parentElement.className == "active"){
+
+                
+        }
+    })
 
 }
 
