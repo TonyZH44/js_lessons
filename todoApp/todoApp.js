@@ -30,10 +30,13 @@ function initActions(){
                 if (document.querySelector('.todo_states').value == "all") break;
                 target.parentElement.style.display = "none"
                 break;
+            case 'todo_edit':
+                //Доделать
+                break;
         }
     })
-    let input = document.querySelector('.todo_text');
-    input.addEventListener('keydown', (event) => {
+    let todo_text = document.querySelector('.todo_text');
+    todo_text.addEventListener('keydown', (event) => {
         const keyName = event.key;
 
         if (keyName === 'Enter') {
@@ -42,13 +45,29 @@ function initActions(){
         } 
     })
 
+    todo_text.addEventListener('blur', (event) => {
+        addTask();
+        save();
+    })
+
+    //Доделать 
     app.addEventListener('dblclick', (event) => {
         if (event.target.className == "todo_task" 
             && event.target.parentElement.className == "active"){
 
-                
+                task_value = event.target.value;
+
+                event.target.outerHTML = `<input class="todo_edit">`;
+                event.target.value = task_value;
+                event.target.focus();
+
+                event.target.addEventListener('blur', () =>{
+                    event.target.innerHTML = `<span class="todo_task">${event.target.value}</span>`;
+                })
+
         }
     })
+
 
 }
 
