@@ -160,14 +160,30 @@ body {
 }
 
 .todo_task{
+	-webkit-flex: auto;
+  	flex: auto;
+	overflow-wrap: break-word;
 	color: rgb(224, 224, 224);
 }
 
 .todo_list li {
+	height:fit-content;
 	position: relative;
 	font-size: 24px;
 	border-bottom: 1px solid #ededed;
 	padding: 10px;
+	display: -webkit-flex;
+  	display: flex;
+  	-webkit-flex-direction: row;
+  	flex-direction: row;
+}
+
+.todo_list .btn_action_complete {
+	width: 3rem;
+}
+
+.todo_list .btn_action_delete {
+	width: 3rem;
 }
 
 

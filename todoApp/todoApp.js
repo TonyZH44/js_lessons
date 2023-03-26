@@ -15,9 +15,22 @@ function initActions(){
                 save();
                 break;
             case 'btn_action_complete':
+                if (target.parentElement.className == "completed"){
+                    target.parentElement.className = "active";
+                    text = target.parentElement.querySelector('.todo_task');
+                    text.outerHTML = `<span class="todo_task">${text.innerText}</span>`;
+                    save();
+                    if (document.querySelector('.todo_states').value == "all") break;
+                    target.parentElement.style.display = "none"
+                    break;
+                }
                 target.parentElement.className = "completed";
                 text = target.parentElement.querySelector('.todo_task');
-                text.innerHTML = `<span class="todo_task"><del>${text.innerText}</del></span>`;
+                console.log(text);
+                console.log(text.innerHTML);
+                console.log(text.innerText);
+                console.log(text.outerHTML);
+                text.outerHTML = `<span class="todo_task"><del>${text.innerText}</del></span>`;
                 save();
                 if (document.querySelector('.todo_states').value == "all") break;
                 target.parentElement.style.display = "none"
@@ -25,7 +38,7 @@ function initActions(){
             case 'btn_action_restore':
                 target.parentElement.className = "active";
                 text = target.parentElement.querySelector('.todo_task');
-                text.innerHTML = `<span class="todo_task">${text.innerText}</span>`;
+                text.outerHTML = `<span class="todo_task">${text.innerText}</span>`;
                 save();
                 if (document.querySelector('.todo_states').value == "all") break;
                 target.parentElement.style.display = "none"
@@ -80,12 +93,13 @@ function isEmpty(str) {
 
 function create(str){
     return `<li id="${str}" class="active">
+        <button class="btn_action_complete">C</button>
         <span class="todo_task">${str}</span>
-        <button class="btn_action_restore">restore</button>
-        <button class="btn_action_complete">complete</button>
         <button class="btn_action_delete">X</button>
         </li>`;
 }
+
+//<button class="btn_action_restore">R</button>
 
 function selectOnChange(obj){
     let selected = obj.value;
