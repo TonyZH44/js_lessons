@@ -26,10 +26,10 @@ function initActions(){
                 }
                 target.parentElement.className = "completed";
                 text = target.parentElement.querySelector('.todo_task');
-                console.log(text);
-                console.log(text.innerHTML);
-                console.log(text.innerText);
-                console.log(text.outerHTML);
+                //console.log(text);
+                //console.log(text.innerHTML);
+                //console.log(text.innerText);
+                //console.log(text.outerHTML);
                 text.outerHTML = `<span class="todo_task"><del>${text.innerText}</del></span>`;
                 save();
                 if (document.querySelector('.todo_states').value == "all") break;
@@ -68,19 +68,23 @@ function initActions(){
         if (event.target.className == "todo_task" 
             && event.target.parentElement.className == "active"){
 
-                task_value = event.target.value;
+                task_value = event.target.innerText;
+                console.log(task_value);
+                parent = event.target.parentElement;
 
                 event.target.outerHTML = `<input class="todo_edit">`;
-                event.target.value = task_value;
-                event.target.focus();
+                input = parent.querySelector('.todo_edit');
+                input.value = task_value;
+                input.focus();
 
-                event.target.addEventListener('blur', () =>{
-                    event.target.innerHTML = `<span class="todo_task">${event.target.value}</span>`;
+                input.addEventListener('blur', (event_blur) =>{
+                    input.outerHTML = `<span class="todo_task">${input.value}</span>`;
                 })
 
         }
     })
 
+    
 
 }
 
