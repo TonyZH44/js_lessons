@@ -43,9 +43,6 @@ function initActions(){
                 if (document.querySelector('.todo_states').value == "all") break;
                 target.parentElement.style.display = "none"
                 break;
-            case 'todo_edit':
-                //Доделать
-                break;
         }
     })
     let todo_text = document.querySelector('.todo_text');
@@ -63,7 +60,7 @@ function initActions(){
         save();
     })
 
-    //Доделать 
+
     app.addEventListener('dblclick', (event) => {
         if (event.target.className == "todo_task" 
             && event.target.parentElement.className == "active"){
@@ -93,8 +90,6 @@ function initActions(){
         }
     })
 
-    
-
 }
 
 function load(){
@@ -104,7 +99,12 @@ function load(){
     }
 }
 
-function save(){
+function save(){//доделать
+    let list = document.querySelector('.todo_list').childNodes;
+    for (let item of list){
+        item_class = item.className;
+        item.querySelector('.todo_task')
+    }
     localStorage.setItem('todo_list', document.querySelector('.todo_list').innerHTML);
 }
 
