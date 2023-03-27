@@ -77,6 +77,15 @@ function initActions(){
                 input.value = task_value;
                 input.focus();
 
+                input.addEventListener('keydown', (event_keydown) =>{
+                    const keyName = event_keydown.key;
+
+                    if (keyName === 'Enter') {
+                        input.outerHTML = `<span class="todo_task">${input.value}</span>`;
+                    } 
+                    
+                })
+
                 input.addEventListener('blur', (event_blur) =>{
                     input.outerHTML = `<span class="todo_task">${input.value}</span>`;
                 })
