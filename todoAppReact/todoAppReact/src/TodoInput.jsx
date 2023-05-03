@@ -1,6 +1,6 @@
 
 
-function todoInput() {
+export default function todoInput() {
 
     return (
         <div>
@@ -15,5 +15,3 @@ function todoInput() {
         </div>
     );
 }
-
-export default todoInput

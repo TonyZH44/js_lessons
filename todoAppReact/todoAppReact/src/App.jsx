@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './assets/global.css'
 import './Footer.jsx'
+import './TodoInput.jsx'
 
 function App() {
   
@@ -14,7 +15,7 @@ function App() {
 				{todoInput}
 			</header>
 		</div>
-  )
+  );
 }
 
 export default App
