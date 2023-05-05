@@ -12,8 +12,9 @@ export default function App() {
   const [tasks, setTasks] = useState([]);
 
   let taskArr = tasks.map((item, index) => (
+    console.log(item),
     <TodoItem
-      id={index}
+      id={item.id}
       text={item.text}
       />
   ));
@@ -30,8 +31,8 @@ export default function App() {
     console.log(text);
     e.target.value = "";
     if (text)
-      setTasks([...tasks, {id: Date.now, text: text}]);
-    console.log(tasks);
+      setTasks([...tasks, {id: Date.now(), text: text}]);
+    //console.log(tasks);
   }
 
   return (
