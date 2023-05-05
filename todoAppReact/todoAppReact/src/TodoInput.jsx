@@ -1,16 +1,15 @@
 
 
-export default function todoInput() {
+export default function TodoInput({onKeyDown, onBlur}) {
 
     return (
         <div>
             <input
                 className="new-todo"
                 placeholder="What needs to be done?"
-                value={this.state.newTodo}
-                onKeyDown={this.handleNewTodoKeyDown}
-                onChange={this.handleChange}
                 autoFocus={true}
+                onKeyDown={onKeyDown}
+                onBlur={onBlur}
             />
         </div>
     );
