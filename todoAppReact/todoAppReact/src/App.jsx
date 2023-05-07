@@ -12,15 +12,38 @@ export default function App() {
   const [tasks, setTasks] = useState([]);
 
   let taskArr = tasks.map((item, index) => (
-    console.log(item),
+    //console.log(item),
     <TodoItem
-      id={item.id}
+      id={index}
       text={item.text}
+      completed={item.completed}
+      onToggle={onToggle}
+      onDestroy={destroy}
       />
   ));
-  //TodoItem("test", Date.now())
+  
+
+  function destroy(e){
+    //console.log("destroy");
+    
+    //console.log(e.target.id);
+    const copy = [...tasks]
+    copy.splice(e.target.id, 1);
+    setTasks(copy);
+    //console.log(newTasks);
+    //console.log(tasks);
+    
+  }
 
 
+  function onToggle(e){
+    //console.log(e.target.id);
+    //console.log(tasks[e.target.id])
+    const copyArr = [...tasks];
+    copyArr[e.target.id].completed = !copyArr[e.target.id].completed;
+    setTasks(copyArr);
+    
+  }
   
 
   function addTask(e) {
@@ -28,10 +51,10 @@ export default function App() {
     if (!(e.key === "Enter" || e.key === null)) return null;
 
     let text = e.target.value;
-    console.log(text);
+    //console.log(text);
     e.target.value = "";
     if (text)
-      setTasks([...tasks, {id: Date.now(), text: text}]);
+      setTasks([...tasks, {id: Date.now()*Math.random(),completed: false, text: text}]);
     //console.log(tasks);
   }
 

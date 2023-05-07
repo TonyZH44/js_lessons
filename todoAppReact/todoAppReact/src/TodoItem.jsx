@@ -1,25 +1,32 @@
 
-export default function TodoItem({id, text }) {
+export default function TodoItem({id, text, completed, onDestroy, onToggle }) {
+
+    if (!completed){
+        completed = "";
+    } else  {
+        completed = "completed"
+    }
+
+    const key = Date.now();
 
     return (
-        <li key={id}
-            // className={classNames({
-            //     completed: this.props.todo.completed,
+        <li key={key} id={id}
+             className= {completed}
             //     editing: this.props.editing
-            // })}
+             
             >
             <div className="view">
-                <input
+                <input id={id}
                     className="toggle"
                     type="checkbox"
-                    //checked={this.props.todo.completed}
-                    //onChange={this.props.onToggle}
+                    checked={completed}
+                    onChange={onToggle}
                 />
                 <label //onDoubleClick={this.handleEdit}
                 >
                     {text}
                 </label>
-                <button className="destroy" //onClick={this.props.onDestroy} 
+                <button id={id} className="destroy" onClick={onDestroy} 
                 />
             </div>
             <input
