@@ -7,10 +7,10 @@ export default function TodoItem({id, text, completed, onDestroy, onToggle }) {
         completed = "completed"
     }
 
-    const key = Date.now();
+    //const key = Date.now();
 
     return (
-        <li key={key} id={id}
+        <li id={id}
              className= {completed}
             //     editing: this.props.editing
              

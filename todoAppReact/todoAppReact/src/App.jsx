@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './assets/global.css'
 import TodoFooter from './TodoFooter.jsx'
 import TodoInput from './TodoInput.jsx'
@@ -9,11 +7,26 @@ import TodoItem from './TodoItem'
 
 export default function App() {
 
+  
+  const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  //if (savedTasks !=="")
+
   const [tasks, setTasks] = useState([]);
+
+  
+  
+  
+  useEffect(() => {
+    setTasks(JSON.parse(localStorage.getItem("tasks")))},[]);
+
+  if (tasks.length > 0)
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
   let taskArr = tasks.map((item, index) => (
     //console.log(item),
     <TodoItem
+      key= {index}
       id={index}
       text={item.text}
       completed={item.completed}
@@ -54,7 +67,7 @@ export default function App() {
     //console.log(text);
     e.target.value = "";
     if (text)
-      setTasks([...tasks, {id: Date.now()*Math.random(),completed: false, text: text}]);
+      setTasks([...tasks, {id: Date.now()*Math.random(), completed: false, text: text}]);
     //console.log(tasks);
   }
 
